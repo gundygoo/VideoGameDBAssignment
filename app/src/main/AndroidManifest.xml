@@ -15,6 +15,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Activities.QueryAndResultActivity" />
+        <activity android:name=".Activities.AddModifySeriesActivity" />
+        <activity android:name=".Activities.AddModifyVideoGameActivity" />
+        <activity android:name=".Activities.AddModifyPublisherActivity" />
+        <activity android:name=".Activities.AddModifyPlatformActivity"></activity>
     </application>
 
 </manifest>
