@@ -31,7 +31,12 @@ public class DatabaseAccessor extends SQLiteOpenHelper{
             Constants.COLUMN_NAME_DEVELOPER + " TEXT," +
             Constants.COLUMN_NAME_YEAR_RELEASED + " TEXT" + ")";
 
-    //TODO add series table creation
+    private static final String CREATE_TABLE_SERIES = "CREATE TABLE "
+            + Constants.SERIES_TABLE_NAME + "(" +
+            Constants.COLUMN_NAME_SERIES_NAME_SR + " TEXT PRIMARY KEY," +
+            Constants.COLUMN_NAME_NUMBER_GAMES + " TEXT," +
+            Constants.COLUMN_NAME_YEAR_STARTED + " TEXT" + ")";
+
     public DatabaseAccessor (Context context){
         super(context, Constants.VIDEO_GAME_DATABASE_NAME, null, 1);
     }
@@ -41,7 +46,7 @@ public class DatabaseAccessor extends SQLiteOpenHelper{
         sqLiteDatabase.execSQL(CREATE_TABLE_VIDEO_GAMES);
         sqLiteDatabase.execSQL(CREATE_TABLE_PUBLISHERS);
         sqLiteDatabase.execSQL(CREATE_TABLE_PLATFORMS);
-        //TODO add series table
+        sqLiteDatabase.execSQL(CREATE_TABLE_SERIES);
     }
 
     @Override
@@ -49,7 +54,7 @@ public class DatabaseAccessor extends SQLiteOpenHelper{
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Constants.VIDEO_GAME_TABLE_NAME);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Constants.PUBLISHER_TABLE_NAME);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Constants.PLATFORM_TABLE_NAME);
-        //TODO add series table
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + Constants.SERIES_TABLE_NAME);
 
         onCreate(sqLiteDatabase);
     }
