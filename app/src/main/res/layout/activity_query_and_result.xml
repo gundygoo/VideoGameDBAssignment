@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_query_and_result"
     android:layout_width="match_parent"
@@ -8,6 +8,56 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.oudersonstudios.videogamedbassignment.Activities.QueryAndResultActivity">
+    tools:context="com.oudersonstudios.videogamedbassignment.Activities.QueryAndResultActivity"
+    android:orientation="vertical">
 
-</RelativeLayout>
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tableSelectDropdown"
+        android:layout_margin="5dip"
+        />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="Name:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/searchByNameHeader"
+            android:layout_weight=".5"
+            android:layout_margin="5dip"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/queryEditTextBox"
+            android:layout_weight="1.5"
+            android:layout_margin="5dip"
+            android:hint="Query Name"/>
+
+    </LinearLayout>
+
+    <Button
+        android:text="Loading Database..."
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/runQueryButton"
+        android:layout_margin="5dip"
+        android:background="@android:color/holo_green_dark"
+        android:clickable="false"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dip"
+        android:id="@+id/queryResultListView"/>
+
+</LinearLayout>

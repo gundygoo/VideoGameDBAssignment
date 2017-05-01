@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">VideoGameDBAssignment</string>
+
+    <string-array name="tables_array">
+        <item>Video Games</item>
+        <item>Platforms</item>
+        <item>Publishers</item>
+        <item>Series</item>
+    </string-array>
 </resources>
