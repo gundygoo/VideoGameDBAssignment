@@ -4,7 +4,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.ShareActionProvider;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -18,6 +22,7 @@ import com.oudersonstudios.videogamedbassignment.AsyncTasks.LoadDatabase;
 import com.oudersonstudios.videogamedbassignment.R;
 import com.oudersonstudios.videogamedbassignment.Utils.Constants;
 import com.oudersonstudios.videogamedbassignment.Utils.DatabaseAccessor;
+import com.oudersonstudios.videogamedbassignment.Utils.HandleMenu;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +36,7 @@ public class QueryAndResultActivity extends AppCompatActivity {
     List<String> returnedFromQuery = new ArrayList<>();
     ListView queryResultsList;
     Context context;
+    ShareActionProvider mActionProvider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -147,4 +153,27 @@ public class QueryAndResultActivity extends AppCompatActivity {
         }
         super.onDestroy();
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main_toolbar_menu, menu);
+
+        MenuItem shareItem = menu.findItem(R.menu.main_toolbar_menu);
+
+        // To retrieve the Action Provider
+        mActionProvider = (ShareActionProvider)
+                MenuItemCompat.getActionProvider(shareItem);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (!HandleMenu.onOMenuItemSelected(item, this)) {
+            return super.onOptionsItemSelected(item);
+        }
+        return true;
+    }
+
 }
