@@ -41,5 +41,11 @@
             android:id="@+id/publisherYearEditText"
             android:hint="Publisher Year Founded" />
 
+        <Button
+            android:text="Save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/save_publisher_button" />
+
     </LinearLayout>
 </RelativeLayout>

@@ -40,5 +40,11 @@
             android:ems="10"
             android:id="@+id/seriesYearEditText"
             android:hint="Starting Year" />
+
+        <Button
+            android:text="Save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/save_series_button" />
     </LinearLayout>
 </RelativeLayout>

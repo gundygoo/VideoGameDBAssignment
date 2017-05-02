@@ -41,5 +41,12 @@
             android:id="@+id/platformYearEditText"
             android:hint="Platform Release Year" />
 
+        <Button
+            android:text="Save"
+            android:layout_width="match_parent"
+            android:id="@+id/save_platform_button"
+            android:textAlignment="center"
+            android:layout_height="wrap_content" />
+
     </LinearLayout>
 </RelativeLayout>

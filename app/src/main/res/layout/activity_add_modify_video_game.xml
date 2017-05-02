@@ -72,5 +72,11 @@
             android:ems="10"
             android:id="@+id/videoGameSeriesEditText"
             android:hint="Series Name" />
+
+        <Button
+            android:text="Save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/save_videoGame_button" />
     </LinearLayout>
 </RelativeLayout>

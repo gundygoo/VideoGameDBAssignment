@@ -29,7 +29,7 @@ import java.util.List;
 
 public class QueryAndResultActivity extends AppCompatActivity {
     String tableSelection = "";
-    SQLiteDatabase db = null;
+    static SQLiteDatabase db = null;
     DatabaseAccessor dbAccessor;
     Button runQueryButton;
     EditText nameEntry;
@@ -91,9 +91,9 @@ public class QueryAndResultActivity extends AppCompatActivity {
                                     " WHERE " + Constants.COLUMN_NAME_PLATFORM_PL + " LIKE '%" + nameEntry.getText().toString() + "%'";
                             nameColumnName = Constants.COLUMN_NAME_PLATFORM_PL;
                             break;
-                        case "Publisher":
+                        case "Publishers":
                             selectQuery = "SELECT * FROM " + Constants.PUBLISHER_TABLE_NAME +
-                                    " WHERE " + Constants.COLUMN_NAME_PUBLISHER_PB+ " LIKE '%" + nameEntry.getText().toString() + "%'";
+                                    " WHERE " + Constants.COLUMN_NAME_PUBLISHER_PB + " LIKE '%" + nameEntry.getText().toString() + "%'";
                             nameColumnName = Constants.COLUMN_NAME_PUBLISHER_PB;
                             break;
                         case "Series":
@@ -107,7 +107,7 @@ public class QueryAndResultActivity extends AppCompatActivity {
 
                     if (!selectQuery.equals("")){
                         Cursor cursor = db.rawQuery(selectQuery, null);
-
+                        returnedFromQuery = new ArrayList<String>();
                         if (cursor != null){
                             if (cursor.moveToFirst()){
                                 do {
@@ -142,7 +142,7 @@ public class QueryAndResultActivity extends AppCompatActivity {
         runQueryButton.setClickable(true);
     }
 
-    public SQLiteDatabase getDB(){
+    public static SQLiteDatabase getDB(){
         return db;
     }
 
